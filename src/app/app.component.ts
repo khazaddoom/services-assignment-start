@@ -7,7 +7,9 @@ import { CounterService } from './services/counter.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
- 
+  
+  
+  
   // activeUsers: string[] = [] ;
   // inactiveUsers: string[] = [] ;
 
@@ -24,13 +26,21 @@ export class AppComponent {
   activeCount: number = 0;
   deActiveCount: number = 0;
 
-  constructor(private counter: CounterService) { }
-
-  ngDoCheck() {
-    
-    this.activeCount = this.counter.activateRequestCount;
-    this.deActiveCount = this.counter.deActivateRequestCount;
+  constructor(private counter: CounterService) { 
+    this.counter.someEvent.subscribe(()=> {
+      this.activeCount = this.counter.activateRequestCount;
+      this.deActiveCount = this.counter.deActivateRequestCount;
+    });
   }
 
+  // ngOnInit() {
+  //   console.log('ngOnInit called');
+  //   this.activeCount = this.counter.activateRequestCount;
+  //   this.deActiveCount = this.counter.deActivateRequestCount;
+  // }
+
+  // ngOnChanges(changes: SimpleChanges): void {
+  //   console.log('ngOnChanges called');
+  // }
   
 }

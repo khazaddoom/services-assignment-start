@@ -18,7 +18,7 @@ export class UsersService {
         this.inactiveUsers.push(this.activeUsers[index]);
         this.activeUsers.splice(index, 1);
         this.counterServiceInstance.deActivateRequestCount++;
-       // this.requestRaisedEvent.emit();
+        this.counterServiceInstance.someEvent.emit();
        
     }
 
@@ -27,7 +27,7 @@ export class UsersService {
         this.activeUsers.push(this.inactiveUsers[index]);
         this.inactiveUsers.splice(index, 1);
         this.counterServiceInstance.activateRequestCount++;
-        // this.requestRaisedEvent.emit();
+        this.counterServiceInstance.someEvent.emit();
     }
 
 }

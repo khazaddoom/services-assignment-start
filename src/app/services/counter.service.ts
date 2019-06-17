@@ -1,5 +1,6 @@
 import { UsersService } from "./users.service";
-import { Injectable } from "@angular/core";
+import { Injectable, EventEmitter } from "@angular/core";
+import { prepareEventListenerParameters } from "@angular/compiler/src/render3/view/template";
 
 //@Injectable()
 export class CounterService {
@@ -16,6 +17,6 @@ export class CounterService {
     //     })
     // }
 
-
+    someEvent = new EventEmitter<void>();
 
 }
